@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moderna Malharia — Confecção em Formosa da Serra Negra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #EDEAE4;
+    --card: #FFFFFF;
+    --ink: #1B222B;
+    --ink-soft: #55606B;
+    --primary: #25405C;
+    --primary-dark: #16283B;
+    --accent: #C1562C;
+    --line: #D8D3C8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Work Sans', sans-serif;
+    line-height: 1.5;
+  }
+
+  h1, h2, h3, .wordmark {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    border-bottom: 2px solid var(--primary);
+    z-index: 10;
+  }
+  nav .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  .wordmark {
+    font-size: 1.6rem;
+    color: var(--primary);
+  }
+  .nav-cta {
+    background: var(--accent);
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background 0.15s ease;
+  }
+  .nav-cta:hover { background: #a04624; }
+
+  /* HERO */
+  .hero {
+    padding: 80px 0 64px;
+    border-bottom: 2px solid var(--primary);
+  }
+  .hero .tag {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .hero h1 {
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    line-height: 0.98;
+    color: var(--primary-dark);
+    max-width: 14ch;
+    margin-bottom: 26px;
+  }
+  .hero p {
+    color: var(--ink-soft);
+    font-size: 1.08rem;
+    max-width: 50ch;
+    margin-bottom: 28px;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--primary);
+    color: #fff;
+    padding: 14px 26px;
+    font-weight: 600;
+    transition: background 0.15s ease;
+  }
+  .btn-primary:hover { background: var(--primary-dark); }
+
+  /* LINES OF PRODUCTION */
+  .lines {
+    padding: 60px 0;
+    border-bottom: 2px solid var(--primary);
+  }
+  .lines h2 {
+    font-size: 2rem;
+    color: var(--primary-dark);
+    margin-bottom: 34px;
+  }
+  .line-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .line-card {
+    background: var(--card);
+    border-top: 4px solid var(--accent);
+    padding: 26px 22px;
+  }
+  .line-card .num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .line-card h3 {
+    font-size: 1.4rem;
+    color: var(--primary-dark);
+    margin-bottom: 8px;
+  }
+  .line-card p {
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+  }
+
+  /* HOW IT WORKS */
+  .how {
+    padding: 60px 0;
+    border-bottom: 2px solid var(--primary);
+  }
+  .how .wrap {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 40px;
+  }
+  .how h2 {
+    font-size: 2rem;
+    color: var(--primary-dark);
+    max-width: 9ch;
+  }
+  .step-list {
+    list-style: none;
+  }
+  .step-list li {
+    display: flex;
+    gap: 18px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .step-list li:first-child { padding-top: 0; }
+  .step-list .step-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--accent);
+    min-width: 28px;
+  }
+  .step-list .step-text strong {
+    display: block;
+    margin-bottom: 3px;
+    color: var(--primary-dark);
+  }
+  .step-list .step-text span {
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+  }
+
+  /* CONTACT */
+  .contact {
+    padding: 60px 0 76px;
+  }
+  .contact .wrap {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+  .contact h2 {
+    font-size: 2rem;
+    color: var(--primary-dark);
+    margin-bottom: 20px;
+  }
+  .info-row {
+    display: flex;
+    gap: 14px;
+    padding: 15px 0;
+    border-top: 1px solid var(--line);
+  }
+  .info-row:last-child { border-bottom: 1px solid var(--line); }
+  .info-row .label {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.82rem;
+    min-width: 100px;
+    text-transform: none;
+  }
+  .info-row .value { color: var(--ink); }
+  .whats-box {
+    background: var(--primary);
+    color: #fff;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .whats-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  .whats-box p {
+    color: #D6DEE6;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+  }
+  .btn-light {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 13px 24px;
+    font-weight: 600;
+    width: fit-content;
+  }
+  .btn-light:hover { background: #a04624; }
+
+  footer {
+    border-top: 2px solid var(--primary);
+    padding: 24px 0;
+  }
+  footer .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 760px) {
+    .how .wrap, .contact .wrap {
+      grid-template-columns: 1fr;
+    }
+    .line-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="wordmark">MODERNA MALHARIA</span>
+    <a class="nav-cta" href="https://wa.me/5599984599786" target="_blank" rel="noopener">Falar no WhatsApp</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="tag">CONFECÇÃO · BAIRRO INDUSTRIAL · FORMOSA DA SERRA NEGRA</div>
+    <h1>A gente costura sua ideia do jeito certo</h1>
+    <p>Confecção de vestidos, camisetas e fardas — pra pessoa física, empresa, escola ou time. Produção própria, do corte ao acabamento.</p>
+    <a class="btn-primary" href="https://wa.me/5599984599786" target="_blank" rel="noopener">Peça um orçamento</a>
+  </div>
+</section>
+
+<section class="lines">
+  <div class="wrap">
+    <h2>Linhas de produção</h2>
+    <div class="line-grid">
+      <div class="line-card">
+        <span class="num">01</span>
+        <h3>Vestidos</h3>
+        <p>Modelos sob medida ou em lote, pra revenda ou uso próprio.</p>
+      </div>
+      <div class="line-card">
+        <span class="num">02</span>
+        <h3>Camisetas</h3>
+        <p>Estampadas, lisas ou personalizadas, com corte de qualidade.</p>
+      </div>
+      <div class="line-card">
+        <span class="num">03</span>
+        <h3>Fardas</h3>
+        <p>Uniformes pra empresa, escola ou equipe, em qualquer quantidade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how">
+  <div class="wrap">
+    <h2>Como funciona o pedido</h2>
+    <ul class="step-list">
+      <li>
+        <span class="step-num">1</span>
+        <div class="step-text">
+          <strong>Você manda a ideia</strong>
+          <span>Chama no WhatsApp e conta o que precisa: modelo, quantidade e prazo.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <div class="step-text">
+          <strong>A gente monta o orçamento</strong>
+          <span>Passamos valor e prazo de acordo com tecido, quantidade e complexidade da peça.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <div class="step-text">
+          <strong>Produção na malharia</strong>
+          <span>Corte, costura e acabamento feitos aqui mesmo, no Bairro Industrial.</span>
+        </div>
+      </li>
+      <li>
+        <span class="step-num">4</span>
+        <div class="step-text">
+          <strong>Entrega combinada</strong>
+          <span>Você retira ou combinamos a entrega, conforme o tamanho do pedido.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap">
+    <div>
+      <h2>Onde estamos</h2>
+      <div class="info-row">
+        <span class="label">Endereço</span>
+        <span class="value">Rua São Mateus, Bairro Industrial — Formosa da Serra Negra, MA</span>
+      </div>
+      <div class="info-row">
+        <span class="label">WhatsApp</span>
+        <span class="value">(99) 98459-9786</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Atendimento</span>
+        <span class="value">Segunda a sábado</span>
+      </div>
+    </div>
+    <div class="whats-box">
+      <h3>Vai encomendar fardas ou peças em lote?</h3>
+      <p>Manda a quantidade e o modelo que você tem em mente — a gente responde com prazo e valor no mesmo dia.</p>
+      <a class="btn-light" href="https://wa.me/5599984599786" target="_blank" rel="noopener">Pedir orçamento agora</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Moderna Malharia</span>
+    <span>Rua São Mateus, Bairro Industrial — Formosa da Serra Negra, MA</span>
+  </div>
+</footer>
+
+</body>
+</html>
